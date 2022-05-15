@@ -3,6 +3,7 @@ Static methods do not know anything about the state of the class, i.e., they can
 of a static method is to use its parameters and produce a useful result.
 """
 
+
 class BodyInfo:
 
     @staticmethod
