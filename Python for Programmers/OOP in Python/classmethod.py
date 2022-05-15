@@ -9,5 +9,13 @@ class Player:
     def get_team_name(cls):
         return cls.teamName
 
+    # a static method does not use reference to the object or class.
+    @staticmethod
+    def demo():
+        print("I am a static method.")
+
 
 print(Player.get_team_name())
+p1 = Player('lol')
+p1.demo()
+Player.demo()
