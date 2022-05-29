@@ -25,7 +25,7 @@ phone_book = dict([('Batman', 468426),
                    ('Ghostbusters', 44678)])
 print(phone_book)
 
-# how to access dictionary values
+# how to access dictionary values. you can use a key or the .get() method
 phone_book = {"Batman": 468426,
               "Cersei": 237734,
               "Ghostbusters": 44678}
