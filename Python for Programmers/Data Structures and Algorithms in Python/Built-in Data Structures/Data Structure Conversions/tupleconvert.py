@@ -11,5 +11,5 @@ print(star_wars_tup)
 star_wars_tup = tuple(star_wars_set)  # Converting from set
 print(star_wars_tup)
 
-star_wars_tup = tuple(star_wars_dict)  # Converting from dictionary
+star_wars_tup = tuple(star_wars_dict)  # Converting from dictionary - only keys get turned into tuple
 print(star_wars_tup)
