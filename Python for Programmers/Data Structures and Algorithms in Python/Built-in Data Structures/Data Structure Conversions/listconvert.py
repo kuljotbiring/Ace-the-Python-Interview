@@ -19,3 +19,10 @@ print(star_wars_list)
 
 star_wars_list = list(star_wars_dict)  # Converting from dictionary
 print(star_wars_list)
+
+# make a dictionary into a list by using .items() which makes each key, value pair a tuple in a list
+star_wars_dict = {1: "Anakin", 2: "Darth Vader", 3: 1000}
+print(star_wars_dict)
+
+star_wars_list = list(star_wars_dict.items())
+print(star_wars_list)
