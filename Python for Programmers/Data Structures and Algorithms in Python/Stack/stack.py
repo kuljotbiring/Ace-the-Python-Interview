@@ -13,6 +13,9 @@ class Stack:
     def pop(self):
         return self.items.pop()
 
+    def is_empty(self):
+        return self.items == []
+
     def get_stack(self):
         return self.items
 
