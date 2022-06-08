@@ -17,6 +17,8 @@ class LinkedList:
             return
         # if list is not empty
         last_node = self.head
+        # while there are other nodes - keep moving through linked list
         while last_node.next:
             last_node = last_node.next
+        # finally, make the last node point to the new node
         last_node.next = new_node
