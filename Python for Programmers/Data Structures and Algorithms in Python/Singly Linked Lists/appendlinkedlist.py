@@ -33,6 +33,7 @@ class LinkedList:
         last_node.next = new_node
 
 
+# create linked list and print it out
 llist = LinkedList()
 llist.append("A")
 llist.append("B")
