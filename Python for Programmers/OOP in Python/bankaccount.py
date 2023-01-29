@@ -70,3 +70,12 @@ class SavingsAccount(Account):
 
     def interest_amount(self):
         return (self.interest_rate * self.balance) * 100
+
+
+new_account = SavingsAccount("Steve", 5000, 10)
+print("Initial Balance:", new_account.get_balance())
+new_account.withdraw(1000)
+print("Balance after withdrawal:", new_account.get_balance())
+new_account.deposit(500)
+print("Balance after deposit:", new_account.get_balance())
+print("Interest on current balance:", new_account.interest_amount())
