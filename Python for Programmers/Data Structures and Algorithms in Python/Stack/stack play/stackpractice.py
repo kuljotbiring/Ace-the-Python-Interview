@@ -20,17 +20,17 @@ class Stack:
             return self.items[-1]
 
 
-my_stack = Stack()
-my_stack.push("A")
-my_stack.push("B")
-my_stack.push("C")
+# my_stack = Stack()
+# my_stack.push("A")
+# my_stack.push("B")
+# my_stack.push("C")
+#
+# print(my_stack.get_stack())
+#
+# print(my_stack.peek())
+#
+# my_stack.pop()
 
-print(my_stack.get_stack())
-
-print(my_stack.peek())
-
-my_stack.pop()
-
-print(my_stack.peek())
-
-print(my_stack.get_stack())
+# print(my_stack.peek())
+#
+# print(my_stack.get_stack())

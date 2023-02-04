@@ -54,3 +54,10 @@ def is_paren_balanced(paren_string):
     # other-wise parenthesis did not match
     else:
         return False
+
+
+string_parenthesis = ["(((({}))))", "[][]]]", "[][]"]
+
+for string in string_parenthesis:
+    print(f"Is the string: {string} balanced?")
+    print(is_paren_balanced(string))
