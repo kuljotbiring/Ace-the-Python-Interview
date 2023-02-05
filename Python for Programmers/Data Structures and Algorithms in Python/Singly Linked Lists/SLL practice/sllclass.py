@@ -11,6 +11,17 @@ class LinkedList:
         # points to first node in linked list
         self.head = None
 
+    def print_list(self):
+        # start at the head of list
+        current_node = self.head
+
+        # while we are not pointed at None
+        while current_node:
+            # print the data in the current Node
+            print(current_node.data)
+            # move the pointer over to iterate through list
+            current_node = current_node.next
+
     def append(self, data):
         # creating a new node
         new_node = Node(data)
@@ -28,3 +39,9 @@ class LinkedList:
             last_node = last_node.next
         last_node.next = new_node
 
+
+sll = LinkedList()
+
+sll.append("A")
+sll.append("B")
+sll.append("C")
