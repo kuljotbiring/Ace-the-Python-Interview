@@ -54,7 +54,9 @@ class LinkedList:
         # create the new Node
         new_node = Node(data)
 
+        # point the next of the new Node to the previous Nodes next
         new_node.next = prev_node.next
+        # update the previous Node next to the new node
         prev_node.next = new_node
 
 
