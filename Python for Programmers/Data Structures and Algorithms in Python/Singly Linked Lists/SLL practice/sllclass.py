@@ -39,11 +39,21 @@ class LinkedList:
             last_node = last_node.next
         last_node.next = new_node
 
+    def prepend(self, data):
+        new_node = Node(data)
+
+        # point next of new node to the head
+        new_node.next = self.head
+        # set head of linked list to new node
+        self.head = new_node
+
 
 sll = LinkedList()
 
 sll.append("A")
 sll.append("B")
 sll.append("C")
+
+sll.prepend("D")
 
 sll.print_list()
