@@ -47,6 +47,16 @@ class LinkedList:
         # set head of linked list to new node
         self.head = new_node
 
+    def insert_after_node(self, prev_node, data):
+        if not prev_node:
+            print("Previous node does not exist")
+            return
+        # create the new Node
+        new_node = Node(data)
+
+        new_node.next = prev_node.next
+        prev_node.next = new_node
+
 
 sll = LinkedList()
 
@@ -54,6 +64,10 @@ sll.append("A")
 sll.append("B")
 sll.append("C")
 
+# add D to front of linked list
 sll.prepend("D")
+
+# add E behind B since D is now head from pre-pend
+sll.insert_after_node(sll.head.next.next, "E")
 
 sll.print_list()
