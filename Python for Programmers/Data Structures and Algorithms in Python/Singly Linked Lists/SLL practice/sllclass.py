@@ -19,3 +19,12 @@ class LinkedList:
         if self.head is None:
             self.head = new_node
             return
+        # if the linked list is not empty
+        # we define last node and START at the head
+        # it will eventually point to the last node
+        last_node = self.head
+        # move from node to node until we get to none
+        while last_node.next:
+            last_node = last_node.next
+        last_node.next = new_node
+
