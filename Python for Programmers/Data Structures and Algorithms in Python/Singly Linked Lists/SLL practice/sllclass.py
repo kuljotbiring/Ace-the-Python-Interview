@@ -45,3 +45,5 @@ sll = LinkedList()
 sll.append("A")
 sll.append("B")
 sll.append("C")
+
+sll.print_list()
