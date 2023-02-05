@@ -11,3 +11,11 @@ class LinkedList:
         # points to first node in linked list
         self.head = None
 
+    def append(self, data):
+        # creating a new node
+        new_node = Node(data)
+
+        # if linked list is empty - point head to the newly created code
+        if self.head is None:
+            self.head = new_node
+            return
