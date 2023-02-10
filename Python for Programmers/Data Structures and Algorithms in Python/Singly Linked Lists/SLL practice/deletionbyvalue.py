@@ -47,9 +47,28 @@ class LinkedList:
 
     # delete a Node
     def delete_node(self, key):
+        # deleting the head of the Linked List
         curr_node = self.head
 
         if curr_node and curr_node.data == key:
             self.head = curr_node.next
             curr_node = None
             return
+
+        # deleting Node other than head
+
+        # keep track of prev Node of the Node to be deleted
+        prev_node = None
+        # while we have not found the key
+        while curr_node and curr_node.data != key:
+            # keep track of the prev Node while we update current Node
+            prev_node = curr_node
+            curr_node = curr_node.next
+
+        # if we never found the key - simply return
+        if curr_node is None:
+            return
+
+        # update prev node to the Node after the Node we are going to delete
+        prev_node.next = curr_node.next
+        curr_node = None
