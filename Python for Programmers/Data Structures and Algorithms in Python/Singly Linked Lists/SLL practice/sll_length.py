@@ -92,3 +92,12 @@ class LinkedList:
             counter += 1
             curr_node = curr_node.next
         return counter
+
+llist = LinkedList()
+llist.append("A")
+llist.append("B")
+llist.append("C")
+llist.append("D")
+
+
+print(llist.get_len())
