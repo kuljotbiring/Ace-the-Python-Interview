@@ -92,6 +92,7 @@ class LinkedList:
             prev.next = curr_node.next
             curr_node = None
 
+
 llist = LinkedList()
 llist.append("A")
 llist.append("B")
