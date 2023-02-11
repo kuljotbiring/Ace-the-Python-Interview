@@ -72,3 +72,15 @@ class LinkedList:
         # update prev node to the Node after the Node we are going to delete
         prev_node.next = curr_node.next
         curr_node = None
+
+
+llist = LinkedList()
+llist.append("A")
+llist.append("B")
+llist.append("C")
+llist.append("D")
+
+llist.delete_node("B")
+llist.delete_node("E")
+
+llist.print_list()
