@@ -88,10 +88,14 @@ class LinkedList:
         counter = 0
         curr_node = self.head
 
+        # go through each Node until we hit none
         while curr_node:
+            # keep count of the Nodes
             counter += 1
             curr_node = curr_node.next
+
         return counter
+
 
 llist = LinkedList()
 llist.append("A")
