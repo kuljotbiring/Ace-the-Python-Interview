@@ -96,6 +96,11 @@ class LinkedList:
 
         return counter
 
+    def recursive_len(self, node):
+        if node is None:
+            return 0
+        return 1 + self.recursive_len(node.next)
+
 
 llist = LinkedList()
 llist.append("A")
@@ -105,3 +110,16 @@ llist.append("D")
 
 
 print(llist.get_len())
+
+sllist = LinkedList()
+print("The length of an empty linked list is:")
+print(llist.recursive_len(llist.head))
+sllist.append("A")
+sllist.append("B")
+sllist.append("C")
+sllist.append("D")
+
+print("The length of the linked list calculated recursively after inserting 4 elements is:")
+print(sllist.recursive_len(llist.head))
+print("The length of the linked list calculated iteratively after inserting 4 elements is:")
+print(sllist.get_len())
