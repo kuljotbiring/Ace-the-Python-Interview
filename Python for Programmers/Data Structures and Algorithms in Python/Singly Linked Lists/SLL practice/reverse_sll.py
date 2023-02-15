@@ -23,33 +23,31 @@ class LinkedList:
         last_node = self.head
         while last_node.next:
             last_node = last_node.next
-        last_node.next = new_node
+        last_node = new_node
 
     def prepend(self, data):
         new_node = Node(data)
-
         new_node.next = self.head
         self.head = new_node
 
-    def insert_after_node(self, prev_node, data):
-        if not prev_node:
-            print("Prev node does not exist")
+    def insert_after_node(self, prev, data):
+        if not prev:
+            print("Prev Node does not exist")
             return
 
         new_node = Node(data)
+        new_node.next = prev.next
+        prev.next = new_node
 
-        new_node.next = prev_node.next
-        prev_node.next = new_node
-
-    def delete_node(self, key):
+    def delete(self, key):
         curr_node = self.head
-
         if curr_node and curr_node.data == key:
             self.head = curr_node.next
             curr_node = None
             return
 
         prev = None
+
         while curr_node and curr_node.data != key:
             prev = curr_node
             curr_node = curr_node.next
@@ -62,19 +60,16 @@ class LinkedList:
 
     def delete_by_pos(self, pos):
         curr_node = self.head
-
         if pos == 0:
             self.head = curr_node.next
             curr_node = None
-            return
 
         prev = None
-        count = 1
-
-        while curr_node and count != pos:
+        counter = 1
+        while curr_node and counter != pos:
             prev = curr_node
             curr_node = curr_node.next
-            count += 1
+            counter += 1
 
         if curr_node is None:
             return
@@ -92,78 +87,56 @@ class LinkedList:
 
         return counter
 
-    def len_recursive(self, node):
+    def get_length_recursive(self, node):
         if node is None:
             return 0
-        return 1 + self.len_recursive(node.next)
+        return 1 + self.get_length_recursive(node.next)
 
     def swap_nodes(self, key_1, key_2):
-        # check if both keys are the same element - nothing to swap!
         if key_1 == key_2:
             return
 
         prev_1 = None
         curr_1 = self.head
-        # loop through the linked list while curr_1 is not at end of LL
-        # or is it not equal to the key_1 that we are looking for
         while curr_1 and curr_1.data != key_1:
             prev_1 = curr_1
             curr_1 = curr_1.next
 
         prev_2 = None
         curr_2 = self.head
-        # loop through the linked list while curr_2 is not at end of LL
-        # or is it not equal to the key_2 that we are looking for
         while curr_2 and curr_2.data != key_2:
             prev_2 = curr_2
             curr_2 = curr_2.next
 
-        # check if the elements exist or not
-        if not curr_1 or not curr_2:
+        if not curr_1 and not curr_2:
             return
 
-        # if previous node exists, then curr Node is not a head Node
         if prev_1:
-            # if prev existed then swap it
             prev_1.next = curr_2
-        # otherwise, it was a head Node, and we set the head to its new value
         else:
             self.head = curr_2
 
-        # if previous node exists, then curr Node is not a head Node
         if prev_2:
-            # if prev existed then swap it
             prev_2.next = curr_1
-        # otherwise, it was a head Node, and we set the head to its new value
         else:
             self.head = curr_1
 
-        # swap what the curr Node next was pointing to
         curr_1.next, curr_2.next = curr_2.next, curr_1.next
 
-
-llist = LinkedList()
-llist.append("A")
-llist.append("B")
-llist.append("C")
-llist.append("D")
-
-print("Original List")
-llist.print_list()
-
-
-llist.swap_nodes("B", "C")
-print("Swapping nodes B and C that are not head nodes")
-llist.print_list()
-
-llist.swap_nodes("A", "B")
-print("Swapping nodes A and B where key_1 is head node")
-llist.print_list()
-
-llist.swap_nodes("D", "B")
-print("Swapping nodes D and B where key_2 is head node")
-llist.print_list()
-
-llist.swap_nodes("C", "C")
-print("Swapping nodes C and C where both keys are same")
-llist.print_list()
+    def reverse_iterative(self):
+        prev = None
+        curr_node = self.head
+        # run until curr_node is not equal to None
+        while curr_node:
+            # next_node is used as temporary value to store curr_node.next
+            next_node = curr_node.next
+            # curr_node.next gets modified to flip the arrows
+            # instead of pointing to next Node, we point to next of the current node
+            # to the previous Node
+            curr_node.next = prev
+            # iterate through LL while keeping track of previous and current Nodes
+            prev = curr_node
+            curr_node = next_node
+        # after iterating through LL, prev is last Node in LL
+        # set self.head equal to last Node of LL
+        self.head = prev
