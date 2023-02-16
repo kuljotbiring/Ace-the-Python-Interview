@@ -23,7 +23,7 @@ class LinkedList:
         last_node = self.head
         while last_node.next:
             last_node = last_node.next
-        last_node = new_node
+        last_node.next = new_node
 
     def prepend(self, data):
         new_node = Node(data)
@@ -140,3 +140,41 @@ class LinkedList:
         # after iterating through LL, prev is last Node in LL
         # set self.head equal to last Node of LL
         self.head = prev
+
+    def reverse_recursive(self):
+        def _reverse_recursive(curr, prev):
+            # base case. activated when reaching end of LL
+            if not curr:
+                return prev
+            # store the next node in a temporary variable
+            nxt = curr.next
+            # make the next pointer point to previous node
+            curr.next = prev
+            # update the previous node to the current node
+            prev = curr
+            # update the current node to the node we saved earlier
+            curr = nxt
+            # recursive function call
+            return _reverse_recursive(curr, prev)
+
+        self.head = _reverse_recursive(curr=self.head, prev=None)
+
+
+llist = LinkedList()
+llist.append("A")
+llist.append("B")
+llist.append("C")
+llist.append("D")
+
+print("Print the Linked List")
+llist.print_list()
+
+llist.reverse_iterative()
+
+print("\nPrint the Linked List reversed iteratively")
+llist.print_list()
+
+llist.reverse_recursive()
+
+print("\nPrint the Linked List reversed recursively")
+llist.print_list()
