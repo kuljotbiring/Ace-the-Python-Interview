@@ -149,36 +149,63 @@ class LinkedList:
                 return _reverse_recursive(curr, prev)
         self.head = _reverse_recursive(curr=self.head, prev=None)
 
+    # pass in llist which is second linked list we are going to merge
     def merge_sorted(self, llist):
+        # point to the heads of each LL
         p = self.head
         q = llist.head
         s = None
 
+        # handle cases if LL is empty
         if not p:
             return q
         if not q:
             return p
 
+        # if both heads exist then compare data of nodes they are pointing to
         if p and q:
+            # if value in p is less than value in q
             if p.data <= q.data:
+                # s point to p
                 s = p
+                # p moves along if s points to node it was previously pointing to
                 p = s.next
+            # value in q is less than value in p
             else:
+                # s points to q
                 s = q
+                # p moves along if s points to node it was previously pointing to
                 q = s.next
+            # whichever was one was lower, set it to the new head
             new_head = s
+        # run until finished with either LL
         while p and q:
+            # if value in p is less than value in q
             if p.data <= q.data:
+                # save what p is pointing to
                 s.next = p
+                # update value of s to p because p.data was less than q.data
                 s = p
+                # make p move by pointing it to the next node of s
                 p = s.next
+            # value in q is less than value in p
             else:
+                # save what q is pointing to
                 s.next = q
+                # update value of s to q because p.data was less than p.data
                 s = q
+                # make q move by pointing it to the next node of s
                 q = s.next
+        # we have reached the end of either LL
+        # find out which LL we have reached the end of
+        # if we reached end of p
         if not p:
+            # s will now point to the remaining llist
             s.next = q
+        # if we reached end of p
         if not q:
+            # s will now point to the remaining llist
             s.next = p
+        # return head node of merged LL
         self.head = new_head
         return self.head
