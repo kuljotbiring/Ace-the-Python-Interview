@@ -184,16 +184,20 @@ class LinkedList:
     def remove_duplicates(self):
         curr = self.head
         prev = None
+        # make a dictionary
         dup_values = dict()
-
+        # iterate through the LL
         while curr:
             if curr.data in dup_values:
                 # remove Node
                 prev.next = curr.next
                 curr = None
+            # if the value does not exist in dictionary yet
             else:
-                # have not encountered element before
+                # add it as a key to the dictionary and assign it 1 as a value
                 dup_values[curr.data] = 1
+                # update prev to curr
                 prev = curr
+            # move forward in the LL
             curr = prev.next
 
