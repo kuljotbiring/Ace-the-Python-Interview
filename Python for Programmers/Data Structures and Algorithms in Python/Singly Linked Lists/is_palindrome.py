@@ -28,4 +28,19 @@ class LinkedList:
             p = p.next
         return s == s[::-1]
 
+    def is_palindrome_stack(self):
+        p = self.head
+        s = []
 
+        while p:
+            s.append(p.data)
+            p = p.next
+
+        p = self.head
+        while p:
+            val = s.pop()
+            if p.data != val:
+                return False
+            p = p.next
+
+        return True
