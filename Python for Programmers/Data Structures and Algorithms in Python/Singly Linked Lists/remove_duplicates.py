@@ -61,7 +61,7 @@ class LinkedList:
                 curr_node = None
                 return
 
-            prev = 0
+            prev = None
             count = 1
 
             while curr_node and count != pos:
