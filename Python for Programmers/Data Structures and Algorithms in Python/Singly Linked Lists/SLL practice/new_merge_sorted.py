@@ -27,7 +27,8 @@ class LinkedList:
 
     def merge_sorted(self, llist):
         # create a dummy Node for edge case of inserting in empty LL
-        tail = Node(0)
+        dummy = Node(0)
+        tail = dummy
         # get the heads of each LL
         l1 = self.head
         l2 = llist.head
@@ -57,7 +58,7 @@ class LinkedList:
             tail.next = l2
 
         # now return the list
-        return tail.next
+        return dummy.next
 
 
 llist_1 = LinkedList()
