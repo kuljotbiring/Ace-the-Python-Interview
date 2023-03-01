@@ -50,3 +50,35 @@ class CircularLinkedList:
             curr = curr.next
             if curr == self.head:
                 break
+
+    def remove(self, key):
+        if self.head:
+            # if head Node gets deleted
+            if self.head.data == key:
+                cur = self.head
+                # run until cur.next points to self.head
+                while cur.next != self.head:
+                    cur = cur.next
+                # if the head is the only Node in the list
+                if self.head == self.head.next:
+                    self.head = None
+                else:
+                    # update the Node which was previously pointing to head
+                    cur.next = self.head.next
+                    # remove prev head from LL & update head of LL
+                    self.head = self.head.next
+            # list is empty
+            else:
+                # keep track of curr and prev nodes
+                cur = self.head
+                prev = None
+                # traverse LL
+                while cur.next != self.head:
+                    prev = cur
+                    cur = cur.next
+                    # if Node is found
+                    if cur.data == key:
+                        # next of prev Node to next of curr Node
+                        prev.next = cur.next
+                        # move along the LL
+                        cur = cur.next
