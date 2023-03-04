@@ -56,3 +56,33 @@ class DoublyLinkedList:
                 return
             # move through the LL
             curr = curr.next
+
+    def add_before_node(self, key, data):
+        curr = self.head
+        while curr:
+            if curr.prev is None and curr.data == key:
+                self.prepend(data)
+                return
+            elif curr.data == key:
+                new_node = Node(data)
+                prev = curr.prev
+                prev.next = new_node
+                curr.prev = new_node
+                new_node.next = curr
+                new_node.prev = prev
+                return
+            curr = curr.next
+
+
+dllist = DoublyLinkedList()
+
+dllist.prepend(0)
+dllist.append(1)
+dllist.append(2)
+dllist.append(3)
+dllist.append(4)
+dllist.prepend(5)
+dllist.add_after_node(3,6)
+dllist.add_before_node(4,9)
+
+dllist.print_list()
