@@ -29,4 +29,8 @@ class DoublyLinkedList:
         pass
 
     def print_list(self):
-        pass
+        curr = self.head
+
+        while curr:
+            print(curr.data)
+            curr = curr.next
