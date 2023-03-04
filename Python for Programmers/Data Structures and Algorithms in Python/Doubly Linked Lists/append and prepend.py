@@ -26,7 +26,18 @@ class DoublyLinkedList:
             new_node.prev = curr
 
     def prepend(self, data):
-        pass
+        if self.head is None:
+            new_node = Node(data)
+            self.head = new_node
+        else:
+            # make a new Node
+            new_node = Node(data)
+            # make old head prev be the new Node
+            self.head.prev = new_node
+            # make new Node next the old head
+            new_node.next = self.head
+            # make the new Node the head
+            self.head = new_node
 
     def print_list(self):
         curr = self.head
