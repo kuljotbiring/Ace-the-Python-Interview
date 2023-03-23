@@ -5,17 +5,18 @@ target. You may assume that each input would have exactly one solution.
 
 
 def two_sum(arr, target_val):
-    n = len(arr)
 
-    for i in range(n):
-        for j in range(i + 1, n):
-            if arr[i] + arr[j] == target_val:
-                return True
+    diff_map = {}
+
+    for idx, num in enumerate(arr):
+        diff = target_val - num
+        if diff in diff_map:
+            return True
+        diff_map[num] = idx
     return False
 
 
 A = [-2, 1, 2, 4, 7, 11]
 target = 13
-print(two_sum(A, target))
-target = 20
+
 print(two_sum(A, target))
