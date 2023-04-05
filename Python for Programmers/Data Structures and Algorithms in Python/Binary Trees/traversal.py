@@ -37,6 +37,20 @@ class BinaryTree(object):
             traversal = self.inorder_print(start.right, traversal)
         return traversal
 
+    def postorder_print(self, start, traversal):
+        """
+        Check if the current node is empty/null.
+        Traverse the left subtree by recursively calling the post-order method.
+        Traverse the right subtree by recursively calling the post-order method.
+        Display the data part of the root (or current node).
+        """
+        # Left->Right->Root"""
+        if start:
+            traversal = self.postorder_print(start.left, traversal)
+            traversal = self.postorder_print(start.right, traversal)
+            traversal += (str(start.value) + "-")
+        return traversal
+
 
 tree = BinaryTree(1)
 tree.root.left = Node(2)
