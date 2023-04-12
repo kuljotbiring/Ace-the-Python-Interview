@@ -26,6 +26,16 @@ def preorder_traversal(root):
         preorder_traversal(root.right)
 
 
+def postorder_traversal(root):
+    if root:
+        # first recursive call on left child
+        preorder_traversal(root.left)
+        # then recursive call on right child
+        preorder_traversal(root.right)
+        # finally, print the data of the node
+        print(root.val)
+
+
 # Driver code
 if __name__ == "__main__":
     root = Node(1)
