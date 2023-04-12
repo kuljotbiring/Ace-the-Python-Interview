@@ -46,11 +46,23 @@ def postorder_traversal(root):
 
 # Driver code
 if __name__ == "__main__":
+
+    # 4-2-5-1-6-3-7 = Inorder Traversal
+    # 1-2-4-5-3-6-7 = Preorder Traversal
+    # 4-5-2-6-7-3-1 = Postorder Traversal
+    #               1
+    #           /       \
+    #          2          3
+    #         /  \      /   \
+    #        4    5     6   7
+
     root = Node(1)
     root.left = Node(2)
     root.right = Node(3)
     root.left.left = Node(4)
     root.left.right = Node(5)
+    root.right.left = Node(6)
+    root.right.right = Node(7)
 
     print("Inorder traversal: ")
     inorder_traversal(root)
@@ -60,3 +72,6 @@ if __name__ == "__main__":
     print("\n")
     print("Postorder traversal: ")
     postorder_traversal(root)
+
+
+
