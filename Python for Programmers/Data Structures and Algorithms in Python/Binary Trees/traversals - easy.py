@@ -5,14 +5,24 @@ class Node:
         self.right = None
 
 
-def preorder_traversal(root):
+def inorder_traversal(root):
     # left -> root -> right
     if root:
         # first recursive call on left child
-        preorder_traversal(root.left)
+        inorder_traversal(root.left)
         # then print the data of the node
         print(root.val)
         # now recur on right child
+        inorder_traversal(root.right)
+
+
+def preorder_traversal(root):
+    if root:
+        # first print the data of the node
+        print(root.val)
+        # then recursive call on left child
+        preorder_traversal(root.left)
+        # finally, recursive call on right child
         preorder_traversal(root.right)
 
 
