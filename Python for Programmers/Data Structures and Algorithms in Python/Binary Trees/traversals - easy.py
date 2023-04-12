@@ -37,9 +37,9 @@ def postorder_traversal(root):
     if root:
         # left -> right -> root
         # first recursive call on left child
-        preorder_traversal(root.left)
+        postorder_traversal(root.left)
         # then recursive call on right child
-        preorder_traversal(root.right)
+        postorder_traversal(root.right)
         # finally, print the data of the node
         print(root.val)
 
@@ -51,3 +51,12 @@ if __name__ == "__main__":
     root.right = Node(3)
     root.left.left = Node(4)
     root.left.right = Node(5)
+
+    print("Inorder traversal: ")
+    inorder_traversal(root)
+    print("\n")
+    print("Preorder traversal: ")
+    preorder_traversal(root)
+    print("\n")
+    print("Postorder traversal: ")
+    postorder_traversal(root)
