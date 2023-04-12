@@ -6,6 +6,8 @@ class Node:
 
 
 def inorder_traversal(root):
+    """When using BST and inorder traversal, we can get nodes in non-decreasing order
+    Time complexity: O(n). Space complexity: O(1)"""
     # left -> root -> right
     if root:
         # first recursive call on left child
@@ -17,6 +19,9 @@ def inorder_traversal(root):
 
 
 def preorder_traversal(root):
+    """Preorder used to create copy of the tree. Also used to get prefix expressions on expression tree
+    Time complexity: O(n). Space complexity: O(1)"""
+    # root -> left -> right
     if root:
         # first print the data of the node
         print(root.val)
@@ -27,7 +32,10 @@ def preorder_traversal(root):
 
 
 def postorder_traversal(root):
+    """Postorder used to delete a tree. Also useful to get postfix expression of expression tree
+    Time complexity: O(n). Space complexity: O(1)"""
     if root:
+        # left -> right -> root
         # first recursive call on left child
         preorder_traversal(root.left)
         # then recursive call on right child
